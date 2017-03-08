@@ -1,7 +1,7 @@
 package hermitage
 
 func initRenderer() {
-	println("Renderer initialzed")
+	println("Hermitage renderer initialzed")
 }
 
 func render() {

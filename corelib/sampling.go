@@ -1,7 +1,5 @@
 package corelib
 
-import "math"
-
 type SamplesCollection struct{
 	Samples1DCount 	int
 	Samples1D	[]float32
@@ -20,7 +18,7 @@ type RandomProvider interface {
 	NextFloat(index...int) float32
 }
 
-const REAL_UINT_INT float64  = 1.0 - float64(math.MaxInt32+1.0)
+const REAL_UINT_INT float64  =  0.0000000005
 const Y uint32 = 842502087
 const Z uint32 = 3579807591
 const W uint32 = 273326509
@@ -41,7 +39,7 @@ type UniformSampler struct{
 }
 
 // UniformSampler
-func newUniformSampler(width, height, seed int, rnd RandomProvider) *UniformSampler{
+func NewUniformSampler(width, height, seed int, rnd RandomProvider) *UniformSampler{
 	return &UniformSampler{Width:width, Height:height, Seed:seed, Random:rnd}
 }
 
@@ -54,7 +52,7 @@ func (u*UniformSampler) Get2DSample() *Vector2{
 }
 
 func (u*UniformSampler) RequestSamples(count1D, count2D int) *SamplesCollection{
-	result :=newSamplesCollection(count1D, count2D)
+	result :=NewSamplesCollection(count1D, count2D)
 
 	for i:=0;i<count1D;i++{
 		result.Samples1D[i] = u.Random.NextFloat(u.Seed)
@@ -68,13 +66,13 @@ func (u*UniformSampler) RequestSamples(count1D, count2D int) *SamplesCollection{
 
 //SamplesCollection
 
-func newSamplesCollection(max1D, max2D int) *SamplesCollection{
+func NewSamplesCollection(max1D, max2D int) *SamplesCollection{
 	return &SamplesCollection{Samples1D:make([]float32,max1D), Samples1DCount:max1D, Samples2D:make([]Vector2, max2D), Samples2DCount:max2D }
 }
 
 //Linear congr. generator
 
-func newLcgRandom(newSeed int) *LcgRandom{
+func NewLcgRandom(newSeed int) *LcgRandom{
 	return &LcgRandom{seed:uint32(newSeed)}
 }
 
@@ -88,10 +86,11 @@ func lcg(prev *uint32) uint32{
 }
 
 func (l*LcgRandom) NextFloat(index...int) float32{
-	return float32(lcg(&l.seed) / 0x01000000)
+	return float32(lcg(&l.seed)) / float32(0x020000)
 }
+
 // Mersenne twister
-func newMersenneTwister(seed int) *MersenneTwister{
+func NewMersenneTwister(seed int) *MersenneTwister{
 	return &MersenneTwister{x:uint32(seed),y:Y, z:Z, w:W }
 }
 
@@ -107,7 +106,7 @@ func (m*MersenneTwister) NextFloat(index...int) float32{
 	m.x = m.y;
 	m.y = m.z;
 	m.z = m.w;
+	m.w=(m.w^(m.w>>19)) ^ (t^(t>>8))
 
-	m.w=(m.w^(m.w>>19))^(t&(t>>8))
-	return float32(REAL_UINT_INT*math.Float64frombits(uint64(0x7FFFFFFF&m.w)))
+	return float32(REAL_UINT_INT)*float32(uint32(0x7FFFFFFF&m.w))
 }

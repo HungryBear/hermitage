@@ -8,7 +8,7 @@ type HaltonSequence struct{
 	Base, Seed uint32
 }
 
-func newHaltonSequence(base, seed int) *HaltonSequence{
+func NewHaltonSequence(base, seed int) *HaltonSequence{
 	return &HaltonSequence{Base:uint32(base), Seed:uint32(seed)}
 }
 
