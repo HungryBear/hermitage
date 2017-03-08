@@ -1,4 +1,4 @@
-package pathtracer
+package hermitage
 
 func initRenderer() {
 	println("Renderer initialzed")
