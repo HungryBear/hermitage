@@ -85,7 +85,7 @@ func lcg(prev *uint32) uint32 {
 }
 
 func (l *LcgRandom) NextFloat(index ...int) float32 {
-	return float32(lcg(&l.seed)) / float32(0x020000)
+	return float32(lcg(&l.seed)) / float32(0x024000)
 }
 
 // Mersenne twister

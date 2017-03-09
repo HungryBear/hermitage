@@ -19,7 +19,7 @@ type Parallelogram struct {
 
 // Parallelogram
 
-func newParallelogram(a *Vector3, v0 *Vector3, v1 *Vector3) *Parallelogram {
+func NewParallelogram(a *Vector3, v0 *Vector3, v1 *Vector3) *Parallelogram {
 	normal := v0
 	normal = normal.Cross(v1).Normalize()
 
@@ -61,7 +61,7 @@ func (p *Parallelogram) Area() float32 {
 
 // Sphere
 
-func newSphere(pos *Vector3, rad float32) *Sphere {
+func NewSphere(pos *Vector3, rad float32) *Sphere {
 	return &Sphere{Position: *pos, Radius: rad}
 }
 

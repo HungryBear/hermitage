@@ -12,7 +12,6 @@ func Min(a, b float32) float32 {
 	if a > b {
 		return b
 	}
-
 	return a
 }
 
@@ -37,8 +36,12 @@ func NearEqual(a, b float32) bool {
 	return math.Abs(float64(a-b)) < float64(Epsilon)
 }
 
+func NearEqualEps(a, b, eps float32) bool {
+	return math.Abs(float64(a-b)) < float64(eps)
+}
+
 func Sinf(x float32) (sin float32) {
-	sin = 0.0
+	/*sin = 0.0
 	if x < -3.14159265 {
 		x += 6.28318531
 	} else if x > 3.14159265 {
@@ -61,11 +64,13 @@ func Sinf(x float32) (sin float32) {
 			sin = .225*(sin*sin-sin) + sin
 		}
 	}
+	return sin*/
+	sin = float32(math.Sin(float64(x)))
 	return sin
 }
 
 func Cosf(x float32) (cos float32) {
-	cos = 0.0
+	/*cos = 0.0
 	if x < -3.14159265 {
 		x += 6.28318531
 	} else if x > 3.14159265 {
@@ -87,7 +92,8 @@ func Cosf(x float32) (cos float32) {
 		} else {
 			cos = .225*(cos*cos-cos) + cos
 		}
-	}
+	}*/
+	cos = float32(math.Cos(float64(x)))
 	return cos
 }
 

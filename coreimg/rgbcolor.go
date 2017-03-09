@@ -3,6 +3,7 @@ package coreimg
 import (
 	"image/color"
 	"math"
+	"github.com/hungrybear/hermitage/corelib"
 )
 
 const (
@@ -43,8 +44,8 @@ var SRGB ColorSpace = ColorSpace{
 	BWeight: [3]float32{0.0556434, -0.2040259, 1.0572252},
 	Xw:      0.95047, Yw: 1.0, Zw: 1.08883} //D65 + sRGB
 
-func NewRgbSpectrum(a, b, c float32, flags int) *RgbSpectrum {
-	return &RgbSpectrum{r: a, g: b, b: c, flags: flags}
+func NewRgbSpectrum(red, green, blue float32, flags int) *RgbSpectrum {
+	return &RgbSpectrum{r: red, g: green, b: blue, flags: flags}
 }
 
 func CreateRgbSpectrum(a float32, flags int) *RgbSpectrum {
@@ -72,14 +73,18 @@ func (r *RgbSpectrum) Mulf(s float32) *RgbSpectrum {
 	return r
 }
 
+func (r *RgbSpectrum) IsBlack() bool{
+	return corelib.NearEqual(r.r, 0) && corelib.NearEqual(r.g, 0)&&corelib.NearEqual(r.b, 0)
+}
+
 func FromRgbInt(r, g, b, a uint32) *RgbSpectrum {
 	return NewRgbSpectrum(float32(r)/255.0, float32(g)/255.0, float32(b)/255.0, RgbFlagLinearRgb)
 }
 
 func (r *RgbSpectrum) ToRGB() color.NRGBA {
-	return color.NRGBA{R: uint8(math.Min(float64(r.r*255.0), 1.0)),
-		G: uint8(math.Min(float64(r.g*255.0), 1.0)),
-		B: uint8(math.Min(float64(r.b*255.0), 1.0))}
+	return color.NRGBA{R: uint8(math.Min(float64(r.r*255.0), 255.0)),
+		G: uint8(math.Min(float64(r.g*255.0), 255.0)),
+		B: uint8(math.Min(float64(r.b*255.0), 255.0))}
 }
 
 func (r *RgbSpectrum) Convert(space ColorSpace) *RgbSpectrum {

@@ -2,7 +2,6 @@ package coreimg
 
 import (
 	"image"
-	"image/color"
 	"image/png"
 	"log"
 	"os"
@@ -18,10 +17,6 @@ func NewBitmap(width, height int, format int) *Bitmap {
 	return &Bitmap{Width: width, Height: height, Data: make([]RgbSpectrum, width*height), Format: format}
 }
 
-func CreateBitmap(width, height int, format int) *Bitmap {
-	return &Bitmap{Width: width, Height: height, Data: make([]RgbSpectrum, width*height), Format: format}
-}
-
 func (b *Bitmap) GetPixel(x, y int) *RgbSpectrum {
 	return &b.Data[b.Width*y+x]
 }
@@ -30,11 +25,12 @@ func (b *Bitmap) SetPixel(x, y int, spectrum *RgbSpectrum) {
 	b.Data[b.Width*y+x] = *spectrum
 }
 
-func Open(img image.Image) *Bitmap {
+func OpenImage(img image.Image) *Bitmap {
 	res := NewBitmap(img.Bounds().Max.X, img.Bounds().Max.Y, RgbFlagLinearRgb)
 	for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
 		for x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {
-			res.SetPixel(x, y, FromRgbInt(img.At(x, y).RGBA()))
+			c:=FromRgbInt(img.At(x, y).RGBA())
+			res.SetPixel(x, y, c)
 		}
 	}
 	return res
@@ -45,8 +41,9 @@ func (b *Bitmap) SaveToImage() image.Image {
 	img := image.NewNRGBA(rect)
 	for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
 		for x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {
-			c := b.GetPixel(x, y)
-			img.Set(x, y, color.NRGBA{R: uint8(255.0 * c.r), G: uint8(255.0 * c.g), B: uint8(255.0 * c.b), A: 255})
+			c := b.GetPixel(x, y).ToRGB()
+			img.Set(x, y,c)
+				//color.NRGBA{R: uint8(255.0 * c.r), G: uint8(255.0 * c.g), B: uint8(255.0 * c.b), A: 255})
 		}
 	}
 	return img
