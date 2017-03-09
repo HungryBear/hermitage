@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/hermitage.iml" filepath="$PROJECT_DIR$/.idea/hermitage.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/pathtracer.iml" filepath="$PROJECT_DIR$/.idea/pathtracer.iml" />
     </modules>
   </component>
 </project>

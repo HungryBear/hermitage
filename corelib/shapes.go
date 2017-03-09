@@ -14,38 +14,37 @@ type Sphere struct {
 type Parallelogram struct {
 	Anchor Vector3
 	V0, V1 Vector3
-	Plane Vector4
+	Plane  Vector4
 }
-
 
 // Parallelogram
 
-func newParallelogram(a * Vector3, v0 *Vector3 , v1 *Vector3) *Parallelogram{
-	normal:= v0;
-	normal = normal.Cross(v1).Normalize();
+func newParallelogram(a *Vector3, v0 *Vector3, v1 *Vector3) *Parallelogram {
+	normal := v0
+	normal = normal.Cross(v1).Normalize()
 
-	d:=normal.Dot(a);
-	return &Parallelogram{Anchor:*a, V0: *v0.Normalize(), V1:*v1.Normalize(), Plane:*CreateVector4(normal, d)}
+	d := normal.Dot(a)
+	return &Parallelogram{Anchor: *a, V0: *v0.Normalize(), V1: *v1.Normalize(), Plane: *CreateVector4(normal, d)}
 }
 
-func (p*Parallelogram) EvaluateNormal(pos *Vector3) *Vector3 {
+func (p *Parallelogram) EvaluateNormal(pos *Vector3) *Vector3 {
 	return newVector3(p.Plane.x, p.Plane.y, p.Plane.z)
 }
 
-func (pl*Parallelogram) Intersect(ray *Ray) (bool, RayHit) {
-	n:= newVector3(pl.Plane.x, pl.Plane.y, pl.Plane.z)
-	dt:=ray.Direction.Dot(n)
-	t:=(pl.Plane.w - n.Dot(&ray.Origin)) / dt;
+func (pl *Parallelogram) Intersect(ray *Ray) (bool, RayHit) {
+	n := newVector3(pl.Plane.x, pl.Plane.y, pl.Plane.z)
+	dt := ray.Direction.Dot(n)
+	t := (pl.Plane.w - n.Dot(&ray.Origin)) / dt
 	hit := newRayHit(0, 0, 1e10, InvalidHit)
 
 	if t < ray.tMax && t > ray.tMin {
-		p:=ray.Origin.Add(ray.Direction.Copy().Mulf(t))
-		vi:=p.Sub(&pl.Anchor)
-		a1:=pl.V0.Dot(vi)
+		p := ray.Origin.Add(ray.Direction.Copy().Mulf(t))
+		vi := p.Sub(&pl.Anchor)
+		a1 := pl.V0.Dot(vi)
 		if a1 >= 0 && a1 <= 1 {
-			a2:=pl.V1.Dot(vi)
-			if(a2 >= 0 && a2 <= 1) {
-				hit.distance = t;
+			a2 := pl.V1.Dot(vi)
+			if a2 >= 0 && a2 <= 1 {
+				hit.distance = t
 				return true, *hit
 			}
 		}
@@ -54,11 +53,12 @@ func (pl*Parallelogram) Intersect(ray *Ray) (bool, RayHit) {
 	return false, *hit
 }
 
-func (p* Parallelogram) Area() float32{
-	tv1  := p.V0.Mulf(1.0 / p.V0.Dot(&p.V0))
-	tv2  := p.V1.Mulf(1.0 / p.V1.Dot(&p.V1))
+func (p *Parallelogram) Area() float32 {
+	tv1 := p.V0.Mulf(1.0 / p.V0.Dot(&p.V0))
+	tv2 := p.V1.Mulf(1.0 / p.V1.Dot(&p.V1))
 	return tv1.Cross(tv2).Len()
 }
+
 // Sphere
 
 func newSphere(pos *Vector3, rad float32) *Sphere {

@@ -4,9 +4,8 @@ import "math"
 
 const InvalidHit uint32 = 0xffffff
 
-
-type Vector2 struct{
-	x,y float32;
+type Vector2 struct {
+	x, y float32
 }
 
 type Vector3 struct {
@@ -30,40 +29,40 @@ type Ray struct {
 }
 
 type RayHit struct {
-	u, v float32
+	u, v     float32
 	distance float32
-	index uint32
+	index    uint32
 }
 
 //Axis Aligned Bounding Box
 
-func NewAABB(min *Vector3, max *Vector3) *AABB{
-	return &AABB{Min:*min, Max:*max}
+func NewAABB(min *Vector3, max *Vector3) *AABB {
+	return &AABB{Min: *min, Max: *max}
 }
 
-func (b*AABB) Expand(f float32) *AABB{
+func (b *AABB) Expand(f float32) *AABB {
 	b.Min = *b.Min.Addf(-f)
 	b.Max = *b.Max.Addf(f)
 	return b
 }
 
-func (b*AABB) Overlap(b2*AABB)bool{
-	x := (b2.Max.x >= b.Min.x) && (b2.Min.x <= b.Max.x);
-	y := (b2.Max.y >= b.Min.y) && (b2.Min.y <= b.Max.y);
-	z := (b2.Max.z >= b.Min.z) && (b2.Min.z <= b.Max.z);
-	return x||y||z
+func (b *AABB) Overlap(b2 *AABB) bool {
+	x := (b2.Max.x >= b.Min.x) && (b2.Min.x <= b.Max.x)
+	y := (b2.Max.y >= b.Min.y) && (b2.Min.y <= b.Max.y)
+	z := (b2.Max.z >= b.Min.z) && (b2.Min.z <= b.Max.z)
+	return x || y || z
 }
 
-func (b *AABB) Union(p*Vector3) *AABB{
-	if b.Min.x < p.x{
+func (b *AABB) Union(p *Vector3) *AABB {
+	if b.Min.x < p.x {
 		b.Min.x = p.x
 	}
 
-	if b.Min.y < p.y{
+	if b.Min.y < p.y {
 		b.Min.y = p.y
 	}
 
-	if b.Min.z < p.z{
+	if b.Min.z < p.z {
 		b.Min.z = p.z
 	}
 
@@ -71,41 +70,41 @@ func (b *AABB) Union(p*Vector3) *AABB{
 	b.Max.y = Max(b.Max.y, p.y)
 	b.Max.z = Max(b.Max.z, p.z)
 
-	return b;
+	return b
 }
 
-func (b*AABB) Contains(pt*Vector3) bool {
+func (b *AABB) Contains(pt *Vector3) bool {
 	return pt.x >= b.Min.x && pt.x <= b.Max.x &&
 		pt.y >= b.Min.y && pt.y <= b.Max.y &&
-		pt.z >= b.Min.z && pt.z <= b.Max.z;
+		pt.z >= b.Min.z && pt.z <= b.Max.z
 }
 
 // Vector2
 
-func NewVector2(x,y float32) *Vector2{
+func NewVector2(x, y float32) *Vector2 {
 	return &Vector2{x: x, y: y}
 }
 
-func CreateVector2(a float32) *Vector2{
-	return &Vector2{x:a, y:a}
+func CreateVector2(a float32) *Vector2 {
+	return &Vector2{x: a, y: a}
 }
 
 // Vector3
 
-func Unit() *Vector3{
-	return &Vector3{1,1,1}
+func Unit() *Vector3 {
+	return &Vector3{1, 1, 1}
 }
 
-func Zero() *Vector3{
-	return &Vector3{0,0,0}
+func Zero() *Vector3 {
+	return &Vector3{0, 0, 0}
 }
 
 func CreateVector3(a float32) *Vector3 {
 	return &Vector3{x: a, y: a, z: a}
 }
 
-func (v *Vector3) Copy()*Vector3{
-	return &Vector3{x:v.x, y:v.y, z:v.z}
+func (v *Vector3) Copy() *Vector3 {
+	return &Vector3{x: v.x, y: v.y, z: v.z}
 }
 
 func NewVector3(x, y, z float32) *Vector3 {
@@ -154,8 +153,8 @@ func NewVector4(x, y, z, w float32) *Vector4 {
 	return &Vector4{x: x, y: y, z: z, w: w}
 }
 
-func CreateVector4(v *Vector3, f float32)*Vector4{
-	return &Vector4{x:v.x, y:v.y, z:v.z, w:f}
+func CreateVector4(v *Vector3, f float32) *Vector4 {
+	return &Vector4{x: v.x, y: v.y, z: v.z, w: f}
 }
 
 func (v *Vector4) Add(v2 *Vector4) *Vector4 {
@@ -173,7 +172,7 @@ func (v *Vector4) Mulf(v2 float32) *Vector4 {
 // Ray methods
 
 func NewRay(pos, dir *Vector3) *Ray {
-	return &Ray{Origin: *pos, Direction: *dir, tMin:1e-4, tMax:1e10}
+	return &Ray{Origin: *pos, Direction: *dir, tMin: 1e-4, tMax: 1e10}
 }
 
 func (ray *Ray) Point(dist float32) *Vector3 {
@@ -182,10 +181,10 @@ func (ray *Ray) Point(dist float32) *Vector3 {
 
 // RayHit
 
-func NewRayHit(a,b, t float32, i uint32) *RayHit{
-	return &RayHit{u:a, v:b, distance:t, index:i}
+func NewRayHit(a, b, t float32, i uint32) *RayHit {
+	return &RayHit{u: a, v: b, distance: t, index: i}
 }
 
-func Miss(hit *RayHit) bool{
-	return hit.index == InvalidHit;
+func Miss(hit *RayHit) bool {
+	return hit.index == InvalidHit
 }

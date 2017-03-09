@@ -12,4 +12,3 @@ func render() {
 func exitRenderer() {
 	println("Exiting renderer.")
 }
-
