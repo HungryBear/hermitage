@@ -18,7 +18,7 @@ type RandomProvider interface {
 	NextFloat(index ...int) float32
 }
 
-const REAL_UINT_INT float64 = 0.0000000005
+const REAL_UINT_INT float64 = 0.00000000045
 const Y uint32 = 842502087
 const Z uint32 = 3579807591
 const W uint32 = 273326509
@@ -47,7 +47,7 @@ func (u *UniformSampler) Get1DSample() float32 {
 }
 
 func (u *UniformSampler) Get2DSample() *Vector2 {
-	return newVector2(u.Random.NextFloat(), u.Random.NextFloat())
+	return NewVector2(u.Random.NextFloat(), u.Random.NextFloat())
 }
 
 func (u *UniformSampler) RequestSamples(count1D, count2D int) *SamplesCollection {
@@ -58,7 +58,7 @@ func (u *UniformSampler) RequestSamples(count1D, count2D int) *SamplesCollection
 	}
 
 	for i := 0; i < count2D; i++ {
-		result.Samples2D[i] = *newVector2(u.Random.NextFloat(u.Seed), u.Random.NextFloat(u.Seed))
+		result.Samples2D[i] = *NewVector2(u.Random.NextFloat(u.Seed), u.Random.NextFloat(u.Seed))
 	}
 	return result
 }
