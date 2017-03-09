@@ -37,7 +37,7 @@ type RayHit struct {
 
 //Axis Aligned Bounding Box
 
-func newAABB(min *Vector3, max *Vector3) *AABB{
+func NewAABB(min *Vector3, max *Vector3) *AABB{
 	return &AABB{Min:*min, Max:*max}
 }
 
@@ -82,7 +82,7 @@ func (b*AABB) Contains(pt*Vector3) bool {
 
 // Vector2
 
-func newVector2(x,y float32) *Vector2{
+func NewVector2(x,y float32) *Vector2{
 	return &Vector2{x: x, y: y}
 }
 
@@ -108,7 +108,7 @@ func (v *Vector3) Copy()*Vector3{
 	return &Vector3{x:v.x, y:v.y, z:v.z}
 }
 
-func newVector3(x, y, z float32) *Vector3 {
+func NewVector3(x, y, z float32) *Vector3 {
 	return &Vector3{x: x, y: y, z: z}
 }
 
@@ -150,7 +150,7 @@ func (v *Vector3) Normalize() *Vector3 {
 
 // Vector 4 methods
 
-func newVector4(x, y, z, w float32) *Vector4 {
+func NewVector4(x, y, z, w float32) *Vector4 {
 	return &Vector4{x: x, y: y, z: z, w: w}
 }
 
@@ -172,7 +172,7 @@ func (v *Vector4) Mulf(v2 float32) *Vector4 {
 
 // Ray methods
 
-func newRay(pos, dir *Vector3) *Ray {
+func NewRay(pos, dir *Vector3) *Ray {
 	return &Ray{Origin: *pos, Direction: *dir, tMin:1e-4, tMax:1e10}
 }
 
@@ -182,7 +182,7 @@ func (ray *Ray) Point(dist float32) *Vector3 {
 
 // RayHit
 
-func newRayHit(a,b, t float32, i uint32) *RayHit{
+func NewRayHit(a,b, t float32, i uint32) *RayHit{
 	return &RayHit{u:a, v:b, distance:t, index:i}
 }
 

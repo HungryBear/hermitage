@@ -1,5 +1,9 @@
 package coreimg
 
+import (
+	"image/color"
+	"math"
+)
 
 const (
 	RgbFlagUnknown  = 1 << iota
@@ -30,7 +34,7 @@ type ColorSpace struct {
 	Xw, Yw, Zw float32
 }
 
-var sRGB ColorSpace = ColorSpace {
+var SRGB ColorSpace = ColorSpace {
 	XWeight:[3]float32{0.4124564 , 0.3575761 , 0.1804375},
 	YWeight:[3]float32{0.2126729 , 0.7151522 , 0.0721750},
 	ZWeight:[3]float32{0.0193339 , 0.1191920  ,0.9503041},
@@ -40,7 +44,7 @@ var sRGB ColorSpace = ColorSpace {
 	Xw:0.95047,Yw:1.0, Zw:1.08883} //D65 + sRGB
 
 
-func newRgbSpectrum( a,b,c float32, flags int) *RgbSpectrum{
+func NewRgbSpectrum( a,b,c float32, flags int) *RgbSpectrum{
 	return &RgbSpectrum{r:a, g:b, b:c, flags:flags}
 }
 
@@ -70,7 +74,13 @@ func (r*RgbSpectrum)Mulf(s float32)*RgbSpectrum{
 }
 
 func FromRgbInt(r, g, b, a uint32) *RgbSpectrum{
-	return newRgbSpectrum(float32(r )/ 255.0,float32(g) / 255.0, float32(b) / 255.0, RgbFlagLinearRgb)
+	return NewRgbSpectrum(float32(r )/ 255.0,float32(g) / 255.0, float32(b) / 255.0, RgbFlagLinearRgb)
+}
+
+func (r*RgbSpectrum) ToRGB() color.NRGBA{
+	return color.NRGBA{R:uint8(math.Min(float64(r.r*255.0), 1.0)),
+			  G:uint8(math.Min(float64(r.g*255.0), 1.0)),
+			  B:uint8(math.Min(float64(r.b*255.0), 1.0))	}
 }
 
 func (r*RgbSpectrum)Convert(space ColorSpace) *RgbSpectrum{
