@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a548ee3f-0d05-444f-90c7-9d9771c87ac0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/corelib/halton_test.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/corelib/matlib_test.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/corelib/sampling_test.go" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/corelib/primitives_test.go" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/corelib/primitives_test.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coreimg/bitmap.go" afterPath="$PROJECT_DIR$/coreimg/bitmap.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coreimg/bitmap_test.go" afterPath="$PROJECT_DIR$/coreimg/bitmap_test.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coreimg/rgbcolor.go" afterPath="$PROJECT_DIR$/coreimg/rgbcolor.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coreimg/rgbcolor_test.go" afterPath="$PROJECT_DIR$/coreimg/rgbcolor_test.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/corelib/matlib.go" afterPath="$PROJECT_DIR$/corelib/matlib.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/corelib/sampling.go" afterPath="$PROJECT_DIR$/corelib/sampling.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/corelib/shapes.go" afterPath="$PROJECT_DIR$/corelib/shapes.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/corelib/matlib_test.go" afterPath="$PROJECT_DIR$/corelib/matlib_test.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/corelib/primitives.go" afterPath="$PROJECT_DIR$/corelib/primitives.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/hermitage$All_in__hermitage_corelib_.coverage" NAME="All in 'hermitage/corelib' Coverage Results" MODIFIED="1489095488937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/hermitage$All_in__hermitage_corelib_.coverage" NAME="All in 'hermitage/corelib' Coverage Results" MODIFIED="1489102644288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/hermitage$TestRgbColorCreation_in_rgbcolor_test_go.coverage" NAME="TestRgbColorCreation in rgbcolor_test.go Coverage Results" MODIFIED="1489088715728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/hermitage$BenchmarkMersenneTwister_NextFloat_in_primitives_test_go.coverage" NAME="BenchmarkMersenneTwister_NextFloat in primitives_test.go Coverage Results" MODIFIED="1489089163334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/hermitage$All_in__hermitage_coreimg_.coverage" NAME="All in 'hermitage/coreimg' Coverage Results" MODIFIED="1489097754994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
@@ -34,84 +27,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="rgbcolor.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coreimg/rgbcolor.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="50" column="53" lean-forward="true" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sampling_test.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/corelib/sampling_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="69" column="40" lean-forward="false" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="40" />
-              <folding>
-                <element signature="e#17#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rgbcolor_test.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coreimg/rgbcolor_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-              <folding>
-                <element signature="e#17#72#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bitmap.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/coreimg/bitmap.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-              <folding>
-                <element signature="e#17#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="color.go" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go/src/image/color/color.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="matlib.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/corelib/matlib.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="72" column="10" lean-forward="false" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="matlib_test.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/corelib/matlib_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding>
-                <element signature="e#17#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="bits.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/corelib/bits.go">
           <provider selected="true" editor-type-id="text-editor">
@@ -122,11 +37,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="matlib.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/corelib/matlib.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="25" column="39" lean-forward="false" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="bitmap_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coreimg/bitmap_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+            <state relative-caret-position="238">
+              <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
               <folding>
                 <element signature="e#17#81#0" expanded="true" />
               </folding>
@@ -139,6 +64,42 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="595">
               <caret line="35" column="16" lean-forward="false" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="primitives.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/corelib/primitives.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="134" column="18" lean-forward="false" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="18" />
+              <folding>
+                <element signature="e#17#30#0" expanded="true" />
+                <element signature="n#!!block;n#Mul#0" expanded="false" />
+                <element signature="n#!!block;n#Mulf#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="primitives_test.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/corelib/primitives_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+              <folding>
+                <element signature="e#17#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sampling.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/corelib/sampling.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="87" column="52" lean-forward="false" selection-start-line="87" selection-start-column="52" selection-end-line="87" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -193,22 +154,22 @@
         <option value="$PROJECT_DIR$/EngineTest.go" />
         <option value="$PROJECT_DIR$/Engine.go" />
         <option value="$PROJECT_DIR$/corelib/halton.go" />
-        <option value="$PROJECT_DIR$/corelib/primitives.go" />
         <option value="$PROJECT_DIR$/app/EngineTest.go" />
         <option value="$PROJECT_DIR$/coreimg/rgbcolorTests.go" />
         <option value="$PROJECT_DIR$/scenelib/primitives.go" />
         <option value="$PROJECT_DIR$/corelib/mc.go" />
-        <option value="$PROJECT_DIR$/corelib/primitives_test.go" />
         <option value="$PROJECT_DIR$/corelib/sampling.go" />
         <option value="$PROJECT_DIR$/corelib/shapes.go" />
         <option value="$PROJECT_DIR$/corelib/halton_test.go" />
-        <option value="$PROJECT_DIR$/corelib/matlib.go" />
         <option value="$PROJECT_DIR$/corelib/sampling_test.go" />
-        <option value="$PROJECT_DIR$/corelib/matlib_test.go" />
         <option value="$PROJECT_DIR$/coreimg/rgbcolor_test.go" />
         <option value="$PROJECT_DIR$/coreimg/bitmap_test.go" />
-        <option value="$PROJECT_DIR$/coreimg/bitmap.go" />
         <option value="$PROJECT_DIR$/coreimg/rgbcolor.go" />
+        <option value="$PROJECT_DIR$/coreimg/bitmap.go" />
+        <option value="$PROJECT_DIR$/corelib/matlib_test.go" />
+        <option value="$PROJECT_DIR$/corelib/matlib.go" />
+        <option value="$PROJECT_DIR$/corelib/primitives.go" />
+        <option value="$PROJECT_DIR$/corelib/primitives_test.go" />
       </list>
     </option>
   </component>
@@ -314,7 +275,16 @@
       <recent name="D:\Go\src\pathtracer\App" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestBitmap in bitmap_test.go">
+  <component name="RunManager" selected="Go Test.All in 'hermitage/corelib'">
+    <configuration default="false" name="TestAABB_Contains in primitives_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+      <module name="hermitage" />
+      <working_directory value="$PROJECT_DIR$/corelib" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="hermitage/corelib" />
+      <pattern value="^TestAABB_Contains$" />
+      <method />
+    </configuration>
     <configuration default="false" name="All in 'hermitage/corelib'" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="hermitage" />
       <working_directory value="$PROJECT_DIR$/corelib" />
@@ -323,39 +293,31 @@
       <package value="hermitage/corelib" />
       <method />
     </configuration>
-    <configuration default="false" name="TestRgbColorConversion in rgbcolor_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+    <configuration default="false" name="TestAABB_Expand in primitives_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="hermitage" />
-      <working_directory value="$PROJECT_DIR$/coreimg" />
+      <working_directory value="$PROJECT_DIR$/corelib" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="hermitage/coreimg" />
-      <pattern value="^TestRgbColorConversion$" />
+      <package value="hermitage/corelib" />
+      <pattern value="^TestAABB_Expand$" />
       <method />
     </configuration>
-    <configuration default="false" name="All in 'hermitage/coreimg'" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+    <configuration default="false" name="TestVector3_Len in primitives_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="hermitage" />
-      <working_directory value="$PROJECT_DIR$/coreimg" />
+      <working_directory value="$PROJECT_DIR$/corelib" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="hermitage/coreimg" />
+      <package value="hermitage/corelib" />
+      <pattern value="^TestVector3_Len$" />
       <method />
     </configuration>
-    <configuration default="false" name="TestRgbColorArithmetic in rgbcolor_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+    <configuration default="false" name="TestVector3_Arithmetic in primitives_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="hermitage" />
-      <working_directory value="$PROJECT_DIR$/coreimg" />
+      <working_directory value="$PROJECT_DIR$/corelib" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="hermitage/coreimg" />
-      <pattern value="^TestRgbColorArithmetic$" />
-      <method />
-    </configuration>
-    <configuration default="false" name="TestBitmap in bitmap_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
-      <module name="hermitage" />
-      <working_directory value="$PROJECT_DIR$/coreimg" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="hermitage/coreimg" />
-      <pattern value="^TestBitmap$" />
+      <package value="hermitage/corelib" />
+      <pattern value="^TestVector3_Arithmetic$" />
       <method />
     </configuration>
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
@@ -412,19 +374,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Go Application.Debug" />
-      <item index="1" class="java.lang.String" itemvalue="Go Test.All in 'hermitage/corelib'" />
-      <item index="2" class="java.lang.String" itemvalue="Go Test.TestRgbColorConversion in rgbcolor_test.go" />
-      <item index="3" class="java.lang.String" itemvalue="Go Test.All in 'hermitage/coreimg'" />
-      <item index="4" class="java.lang.String" itemvalue="Go Test.TestRgbColorArithmetic in rgbcolor_test.go" />
-      <item index="5" class="java.lang.String" itemvalue="Go Test.TestBitmap in bitmap_test.go" />
+      <item index="1" class="java.lang.String" itemvalue="Go Test.TestAABB_Contains in primitives_test.go" />
+      <item index="2" class="java.lang.String" itemvalue="Go Test.All in 'hermitage/corelib'" />
+      <item index="3" class="java.lang.String" itemvalue="Go Test.TestAABB_Expand in primitives_test.go" />
+      <item index="4" class="java.lang.String" itemvalue="Go Test.TestVector3_Len in primitives_test.go" />
+      <item index="5" class="java.lang.String" itemvalue="Go Test.TestVector3_Arithmetic in primitives_test.go" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Go Test.TestBitmap in bitmap_test.go" />
-        <item index="1" class="java.lang.String" itemvalue="Go Test.All in 'hermitage/coreimg'" />
-        <item index="2" class="java.lang.String" itemvalue="Go Test.TestRgbColorArithmetic in rgbcolor_test.go" />
-        <item index="3" class="java.lang.String" itemvalue="Go Test.TestRgbColorConversion in rgbcolor_test.go" />
-        <item index="4" class="java.lang.String" itemvalue="Go Test.All in 'hermitage/corelib'" />
+        <item index="0" class="java.lang.String" itemvalue="Go Test.All in 'hermitage/corelib'" />
+        <item index="1" class="java.lang.String" itemvalue="Go Test.TestVector3_Arithmetic in primitives_test.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Test.TestAABB_Expand in primitives_test.go" />
+        <item index="3" class="java.lang.String" itemvalue="Go Test.TestVector3_Len in primitives_test.go" />
+        <item index="4" class="java.lang.String" itemvalue="Go Test.TestAABB_Contains in primitives_test.go" />
       </list>
     </recent_temporary>
   </component>
@@ -432,35 +394,35 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_'hermitage_coreimg' - 2017.03.10 at 00h 58m 35s.xml">
-      <configuration name="All in 'hermitage/coreimg'" configurationId="GoTestRunConfiguration" />
+    <history-entry file="All_in_'hermitage_corelib' - 2017.03.10 at 02h 30m 01s.xml">
+      <configuration name="All in 'hermitage/corelib'" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="All_in_'hermitage_coreimg' - 2017.03.10 at 00h 59m 00s.xml">
-      <configuration name="All in 'hermitage/coreimg'" configurationId="GoTestRunConfiguration" />
+    <history-entry file="All_in_'hermitage_corelib' - 2017.03.10 at 02h 32m 46s.xml">
+      <configuration name="All in 'hermitage/corelib'" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="All_in_'hermitage_coreimg' - 2017.03.10 at 01h 15m 55s.xml">
-      <configuration name="All in 'hermitage/coreimg'" configurationId="GoTestRunConfiguration" />
+    <history-entry file="All_in_'hermitage_corelib' - 2017.03.10 at 02h 32m 58s.xml">
+      <configuration name="All in 'hermitage/corelib'" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestBitmap_in_bitmap_test_go - 2017.03.10 at 01h 10m 03s.xml">
-      <configuration name="TestBitmap in bitmap_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="All_in_'hermitage_corelib' - 2017.03.10 at 02h 37m 19s.xml">
+      <configuration name="All in 'hermitage/corelib'" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestBitmap_in_bitmap_test_go - 2017.03.10 at 01h 10m 35s.xml">
-      <configuration name="TestBitmap in bitmap_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="All_in_'hermitage_corelib' - 2017.03.10 at 02h 37m 24s.xml">
+      <configuration name="All in 'hermitage/corelib'" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestBitmap_in_bitmap_test_go - 2017.03.10 at 01h 18m 42s.xml">
-      <configuration name="TestBitmap in bitmap_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestAABB_Expand_in_primitives_test_go - 2017.03.10 at 02h 32m 00s.xml">
+      <configuration name="TestAABB_Expand in primitives_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestBitmap_in_bitmap_test_go - 2017.03.10 at 01h 19m 53s.xml">
-      <configuration name="TestBitmap in bitmap_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestAABB_Expand_in_primitives_test_go - 2017.03.10 at 02h 32m 41s.xml">
+      <configuration name="TestAABB_Expand in primitives_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestRgbColorArithmetic_in_rgbcolor_test_go - 2017.03.10 at 00h 57m 24s.xml">
-      <configuration name="TestRgbColorArithmetic in rgbcolor_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestVector3_Arithmetic_in_primitives_test_go - 2017.03.10 at 02h 36m 04s.xml">
+      <configuration name="TestVector3_Arithmetic in primitives_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestRgbColorArithmetic_in_rgbcolor_test_go - 2017.03.10 at 00h 58m 00s.xml">
-      <configuration name="TestRgbColorArithmetic in rgbcolor_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestVector3_Arithmetic_in_primitives_test_go - 2017.03.10 at 02h 36m 57s.xml">
+      <configuration name="TestVector3_Arithmetic in primitives_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestRgbColorArithmetic_in_rgbcolor_test_go - 2017.03.10 at 00h 58m 03s.xml">
-      <configuration name="TestRgbColorArithmetic in rgbcolor_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestVector3_Arithmetic_in_primitives_test_go - 2017.03.10 at 02h 37m 10s.xml">
+      <configuration name="TestVector3_Arithmetic in primitives_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -527,52 +489,28 @@
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/coreimg/bitmap.go</url>
-          <line>44</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/coreimg/bitmap.go</url>
-          <line>32</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/coreimg/rgbcolor.go</url>
-          <line>80</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/coreimg/rgbcolor.go</url>
           <line>85</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/corelib/primitives_test.go</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="19" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scenelib/primitives.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#18#114#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coreimg/bitmap.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
           <caret line="57" column="23" lean-forward="false" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
-          <folding>
-            <element signature="e#17#62#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -633,9 +571,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
           <caret line="57" column="23" lean-forward="false" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
-          <folding>
-            <element signature="e#17#62#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -718,9 +654,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding>
-            <element signature="e#17#62#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -807,14 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/corelib/sampling.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1346">
-          <caret line="87" column="52" lean-forward="false" selection-start-line="87" selection-start-column="52" selection-end-line="87" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/corelib/shapes.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
@@ -849,24 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/corelib/primitives.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2346">
-          <caret line="183" column="6" lean-forward="false" selection-start-line="183" selection-start-column="6" selection-end-line="183" selection-end-column="6" />
-          <folding>
-            <element signature="e#17#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/corelib/matlib.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="72" column="10" lean-forward="false" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/corelib/sampling_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -885,12 +793,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/coreimg/bitmap_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding>
+            <element signature="e#17#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/image/color/color.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/corelib/matlib.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="25" column="39" lean-forward="false" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreimg/bitmap.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding>
+            <element signature="e#17#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/coreimg/rgbcolor_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
           <folding>
             <element signature="e#17#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coreimg/rgbcolor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="88" column="0" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/corelib/matlib_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding>
+            <element signature="e#17#57#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -903,48 +865,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Go/src/image/color/color.go">
+    <entry file="file://$PROJECT_DIR$/corelib/sampling.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="561">
+          <caret line="87" column="52" lean-forward="false" selection-start-line="87" selection-start-column="52" selection-end-line="87" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/corelib/matlib_test.go">
+    <entry file="file://$PROJECT_DIR$/corelib/primitives.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="134" column="18" lean-forward="false" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="18" />
           <folding>
-            <element signature="e#17#57#0" expanded="true" />
+            <element signature="e#17#30#0" expanded="true" />
+            <element signature="n#!!block;n#Mul#0" expanded="false" />
+            <element signature="n#!!block;n#Mulf#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coreimg/bitmap_test.go">
+    <entry file="file://$PROJECT_DIR$/corelib/primitives_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        <state relative-caret-position="323">
+          <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
           <folding>
-            <element signature="e#17#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreimg/rgbcolor.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="50" column="53" lean-forward="true" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coreimg/bitmap.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-          <folding>
-            <element signature="e#17#62#0" expanded="true" />
+            <element signature="e#17#51#0" expanded="true" />
           </folding>
         </state>
       </provider>

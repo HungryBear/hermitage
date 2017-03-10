@@ -22,6 +22,10 @@ func Max(a, b float32) float32 {
 	return b
 }
 
+func Abs(a float32) float32{
+	return float32(math.Abs(float64(a)))
+}
+
 func Clamp(a, min, max float32) float32 {
 	return Min(max, Max(min, a))
 }

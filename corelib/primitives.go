@@ -12,6 +12,10 @@ type Vector3 struct {
 	x, y, z float32
 }
 
+var X_Axis Vector3 = Vector3{1, 0, 0}
+var Y_Axis Vector3 = Vector3{0, 1, 0}
+var Z_Axis Vector3 = Vector3{0, 0, 1}
+
 type Vector4 struct {
 	x, y, z, w float32
 }
@@ -34,6 +38,10 @@ type RayHit struct {
 	index    uint32
 }
 
+type Onb struct{
+	Mx, My, Mz Vector3
+}
+
 //Axis Aligned Bounding Box
 
 func NewAABB(min *Vector3, max *Vector3) *AABB {
@@ -54,15 +62,15 @@ func (b *AABB) Overlap(b2 *AABB) bool {
 }
 
 func (b *AABB) Union(p *Vector3) *AABB {
-	if b.Min.x < p.x {
+	if b.Min.x > p.x {
 		b.Min.x = p.x
 	}
 
-	if b.Min.y < p.y {
+	if b.Min.y > p.y {
 		b.Min.y = p.y
 	}
 
-	if b.Min.z < p.z {
+	if b.Min.z > p.z {
 		b.Min.z = p.z
 	}
 
@@ -88,6 +96,7 @@ func NewVector2(x, y float32) *Vector2 {
 func CreateVector2(a float32) *Vector2 {
 	return &Vector2{x: a, y: a}
 }
+
 
 // Vector3
 
@@ -187,4 +196,27 @@ func NewRayHit(a, b, t float32, i uint32) *RayHit {
 
 func Miss(hit *RayHit) bool {
 	return hit.index == InvalidHit
+}
+
+// Onb
+
+func NewOnb(z Vector3) *Onb{
+	tz:=z.Normalize()
+	var x  Vector3
+	if (Abs(z.x)>0.99) {
+		x=*Y_Axis.Copy()
+	} else{
+		x=*X_Axis.Copy()
+	}
+	ty := tz.Copy().Cross(&x)
+	tx := ty.Copy().Cross(tz)
+	return &Onb{Mx:*tx, My:*ty, Mz:*tz}
+}
+
+func (o*Onb) ToWorld(v *Vector3) Vector3{
+	return *o.Mx.Copy().Mulf(v.x).Add(o.My.Copy().Mulf(v.y)).Add(o.Mz.Copy().Mulf(v.z))
+}
+
+func (o*Onb) ToLocal(v *Vector3) Vector3{
+	return *NewVector3(v.Dot(&o.Mx), v.Dot(&o.My), v.Dot(&o.Mz))
 }
