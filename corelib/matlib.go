@@ -22,7 +22,7 @@ func Max(a, b float32) float32 {
 	return b
 }
 
-func Abs(a float32) float32{
+func Abs(a float32) float32 {
 	return float32(math.Abs(float64(a)))
 }
 

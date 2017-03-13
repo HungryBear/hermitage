@@ -1,9 +1,9 @@
 package coreimg
 
 import (
+	"github.com/hungrybear/hermitage/corelib"
 	"image/color"
 	"math"
-	"github.com/hungrybear/hermitage/corelib"
 )
 
 const (
@@ -73,8 +73,8 @@ func (r *RgbSpectrum) Mulf(s float32) *RgbSpectrum {
 	return r
 }
 
-func (r *RgbSpectrum) IsBlack() bool{
-	return corelib.NearEqual(r.r, 0) && corelib.NearEqual(r.g, 0)&&corelib.NearEqual(r.b, 0)
+func (r *RgbSpectrum) IsBlack() bool {
+	return corelib.NearEqual(r.r, 0) && corelib.NearEqual(r.g, 0) && corelib.NearEqual(r.b, 0)
 }
 
 func FromRgbInt(r, g, b, a uint32) *RgbSpectrum {
@@ -82,7 +82,8 @@ func FromRgbInt(r, g, b, a uint32) *RgbSpectrum {
 }
 
 func (r *RgbSpectrum) ToRGB() color.NRGBA {
-	return color.NRGBA{R: uint8(math.Min(float64(r.r*255.0), 255.0)),
+	return color.NRGBA{
+		R: uint8(math.Min(float64(r.r*255.0), 255.0)),
 		G: uint8(math.Min(float64(r.g*255.0), 255.0)),
 		B: uint8(math.Min(float64(r.b*255.0), 255.0))}
 }

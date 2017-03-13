@@ -1,6 +1,9 @@
 package corelib
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 const InvalidHit uint32 = 0xffffff
 
@@ -38,7 +41,7 @@ type RayHit struct {
 	index    uint32
 }
 
-type Onb struct{
+type Onb struct {
 	Mx, My, Mz Vector3
 }
 
@@ -97,7 +100,6 @@ func CreateVector2(a float32) *Vector2 {
 	return &Vector2{x: a, y: a}
 }
 
-
 // Vector3
 
 func Unit() *Vector3 {
@@ -141,7 +143,7 @@ func (v *Vector3) Mulf(v2 float32) *Vector3 {
 }
 
 func (v *Vector3) Dot(v2 *Vector3) float32 {
-	return v.x + v2.x + v.y*v2.y + v.z*v2.z
+	return v.x*v2.x + v.y*v2.y + v.z*v2.z
 }
 
 func (u *Vector3) Cross(v *Vector3) *Vector3 {
@@ -154,6 +156,14 @@ func (v *Vector3) Len() float32 {
 
 func (v *Vector3) Normalize() *Vector3 {
 	return v.Mulf(1.0 / v.Len())
+}
+
+func (v *Vector3) ToString() string {
+	return fmt.Sprintf("%f %f %f ", v.x, v.y, v.z)
+}
+
+func (v *Vector3) Equals(v2 *Vector3) bool {
+	return NearEqual(v.x, v2.x) && NearEqual(v.y, v2.y) && NearEqual(v.z, v2.z)
 }
 
 // Vector 4 methods
@@ -200,23 +210,23 @@ func Miss(hit *RayHit) bool {
 
 // Onb
 
-func NewOnb(z Vector3) *Onb{
-	tz:=z.Normalize()
-	var x  Vector3
-	if (Abs(z.x)>0.99) {
-		x=*Y_Axis.Copy()
-	} else{
-		x=*X_Axis.Copy()
+func NewOnb(z Vector3) *Onb {
+	tz := z.Normalize()
+	var x Vector3
+	if Abs(z.x) > 0.99 {
+		x = *Y_Axis.Copy()
+	} else {
+		x = *X_Axis.Copy()
 	}
-	ty := tz.Copy().Cross(&x)
-	tx := ty.Copy().Cross(tz)
-	return &Onb{Mx:*tx, My:*ty, Mz:*tz}
+	ty := tz.Cross(&x)
+	tx := ty.Cross(tz)
+	return &Onb{Mx: *tx, My: *ty, Mz: *tz}
 }
 
-func (o*Onb) ToWorld(v *Vector3) Vector3{
-	return *o.Mx.Copy().Mulf(v.x).Add(o.My.Copy().Mulf(v.y)).Add(o.Mz.Copy().Mulf(v.z))
+func (o *Onb) ToWorld(v *Vector3) *Vector3 {
+	return o.Mx.Mulf(v.x).Add(o.My.Mulf(v.y)).Add(o.Mz.Mulf(v.z))
 }
 
-func (o*Onb) ToLocal(v *Vector3) Vector3{
-	return *NewVector3(v.Dot(&o.Mx), v.Dot(&o.My), v.Dot(&o.Mz))
+func (o *Onb) ToLocal(v *Vector3) *Vector3 {
+	return NewVector3(v.Dot(&o.Mx), v.Dot(&o.My), v.Dot(&o.Mz))
 }

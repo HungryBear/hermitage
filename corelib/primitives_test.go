@@ -9,15 +9,47 @@ func randV3() *Vector3 {
 	return NewVector3(rand.Float32(), rand.Float32(), rand.Float32())
 }
 
+func randV2() *Vector2 {
+	return NewVector2(rand.Float32(), rand.Float32())
+}
+
+func randV4() *Vector4 {
+	return NewVector4(rand.Float32(), rand.Float32(), rand.Float32(), rand.Float32())
+}
+
+func TestOnb_Ops(t *testing.T) {
+	onb := NewOnb(*randV3())
+
+	local := randV3()
+
+	world := onb.ToWorld(local)
+
+	conv := onb.ToLocal(world)
+
+	if !local.Equals(conv) {
+		t.Errorf("Invalid onb conversion \n src=%s \n again_2_world=%s \n conv=%s",
+			local.ToString(), onb.ToWorld(conv).ToString(), conv.ToString())
+	}
+}
+
+func TestVector3_Math(t *testing.T) {
+	b := NewVector3(Sqrtf(3.0)/2.0, 0.5, 0.0)
+	a := NewVector3(0.5, Sqrtf(3.0)/2.0, 0.0)
+
+	if cos := a.Dot(b); !NearEqualEps(cos, Cosf(M_PIf/6.0), 0.01) {
+		t.Errorf("Vector Dot is broken - %f != %f", cos, Cosf(M_PIf/6.0))
+	}
+}
+
 func TestVector3_Arithmetic(t *testing.T) {
-	v1:=randV3()
-	v2:=randV3()
+	v1 := randV3()
+	v2 := randV3()
 
-	v3:=v1.Mul(v2).Addf(1.0)
+	v3 := v1.Mul(v2).Addf(1.0)
 
-	asv:=v3.Addf(-1.0).Mul(NewVector3(1.0 / v2.x, 1.0/v2.y, 1.0/v2.z))
+	asv := v3.Addf(-1.0).Mul(NewVector3(1.0/v2.x, 1.0/v2.y, 1.0/v2.z))
 
-	if !NearEqualEps(v1.x, asv.x, 1e-5){
+	if !NearEqualEps(v1.x, asv.x, 1e-5) {
 		t.Errorf("Invalid arithmetic %f %f", v1.x, asv.x)
 	}
 }
