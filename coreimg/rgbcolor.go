@@ -85,7 +85,8 @@ func (r *RgbSpectrum) ToRGB() color.NRGBA {
 	return color.NRGBA{
 		R: uint8(math.Min(float64(r.r*255.0), 255.0)),
 		G: uint8(math.Min(float64(r.g*255.0), 255.0)),
-		B: uint8(math.Min(float64(r.b*255.0), 255.0))}
+		B: uint8(math.Min(float64(r.b*255.0), 255.0)),
+		A:255}
 }
 
 func (r *RgbSpectrum) Convert(space ColorSpace) *RgbSpectrum {

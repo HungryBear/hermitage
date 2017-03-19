@@ -19,22 +19,18 @@ func randV4() *Vector4 {
 
 func TestOnb_Ops(t *testing.T) {
 	onb := NewOnb(*randV3())
-
 	local := randV3()
-
-	world := onb.ToWorld(local)
-
-	conv := onb.ToLocal(world)
-
+	world := onb.ToLocal(local)
+	conv := onb.ToWorld(world)
 	if !local.Equals(conv) {
-		t.Errorf("Invalid onb conversion \n src=%s \n again_2_world=%s \n conv=%s",
-			local.ToString(), onb.ToWorld(conv).ToString(), conv.ToString())
+		t.Errorf("Invalid onb conversion \n src=%s \n conv=%s",
+			local.ToString(), conv.ToString())
 	}
 }
 
-func TestVector3_Math(t *testing.T) {
-	b := NewVector3(Sqrtf(3.0)/2.0, 0.5, 0.0)
-	a := NewVector3(0.5, Sqrtf(3.0)/2.0, 0.0)
+func TestVector3_Dot(t *testing.T) {
+	b := NewVector3(Sqrtf(3.0)/2.0, 0.5, 0.0).Normalize()
+	a := NewVector3(0.5, Sqrtf(3.0)/2.0, 0.0).Normalize()
 
 	if cos := a.Dot(b); !NearEqualEps(cos, Cosf(M_PIf/6.0), 0.01) {
 		t.Errorf("Vector Dot is broken - %f != %f", cos, Cosf(M_PIf/6.0))
@@ -60,7 +56,7 @@ func TestVector3_Len(t *testing.T) {
 		t.Errorf("Invalid Len %f value (should be > 1)", v.Len())
 	}
 	v = v.Normalize()
-	if v.Len() > 1.0 {
+	if v.Len() > 1.0002 {
 		t.Errorf("Invalid Len %f value (should be < 1)", v.Len())
 	}
 

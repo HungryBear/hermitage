@@ -70,6 +70,14 @@ func (m1 *Matrix4x4) Add(m2 *Matrix4x4)*Matrix4x4{
 	}
 }
 
+func (m1 *Matrix4x4) Sub(m2 *Matrix4x4)*Matrix4x4{
+	return &Matrix4x4{ { m1[0][0] - m2[0][0],m1[0][1] - m2[0][1],m1[0][2] - m2[0][2], m1[0][3] - m2[0][3]},
+			   {m1[1][0] - m2[1][0],m1[1][1] - m2[1][1],m1[1][2] - m2[1][2], m1[1][3] - m2[1][3]},
+			   {m1[2][0] - m2[2][0],m1[2][1] - m2[2][1],m1[2][2] - m2[2][2], m1[2][3] - m2[2][3]},
+			   {m1[3][0] - m2[3][0],m1[3][1] - m2[3][1],m1[3][2] - m2[3][2], m1[3][3] - m2[3][3]},
+	}
+}
+
 func (m*Matrix4x4) Inverse() * Matrix4x4{
 	var a1, a2, a3, a4, b1, b2, b3, b4 float32
 	var c1, c2, c3, c4, d1, d2, d3, d4 float32

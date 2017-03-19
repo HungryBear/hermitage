@@ -163,7 +163,7 @@ func (v *Vector3) ToString() string {
 }
 
 func (v *Vector3) Equals(v2 *Vector3) bool {
-	return NearEqual(v.x, v2.x) && NearEqual(v.y, v2.y) && NearEqual(v.z, v2.z)
+	return NearEqualEps(v.x, v2.x, 1e-4) && NearEqualEps(v.y, v2.y,1e-4) && NearEqualEps(v.z, v2.z,1e-4)
 }
 
 // Vector 4 methods
@@ -213,12 +213,12 @@ func Miss(hit *RayHit) bool {
 func NewOnb(z Vector3) *Onb {
 	tz := z.Normalize()
 	var x Vector3
-	if Abs(z.x) > 0.99 {
+	if Abs(tz.x) > 0.99 {
 		x = *Y_Axis.Copy()
 	} else {
 		x = *X_Axis.Copy()
 	}
-	ty := tz.Cross(&x)
+	ty := tz.Cross(&x).Normalize()
 	tx := ty.Cross(tz)
 	return &Onb{Mx: *tx, My: *ty, Mz: *tz}
 }

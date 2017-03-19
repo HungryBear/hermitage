@@ -115,7 +115,7 @@ func PerlinNoise3D(x, y, z float32) *Vector3 {
 	return NewVector3(data[0], data[1], data[2])
 }
 
-func Turbulence(p Vector3, octaves int) float32 {
+func Turbulence(p *Vector3, octaves int) float32 {
 	var k float32 = 1.0
 	var res float32 = 0.0
 	var r Vector3 = *p.Copy()
@@ -127,7 +127,7 @@ func Turbulence(p Vector3, octaves int) float32 {
 	return res
 }
 
-func Turbulence3D(p Vector3, octaves int) *Vector3 {
+func Turbulence3D(p *Vector3, octaves int) *Vector3 {
 	var k float32 = 1.0
 	var res Vector3 = *Unit()
 	var r Vector3 = *p.Copy()

@@ -26,10 +26,13 @@ func (b *Bitmap) SetPixel(x, y int, spectrum *RgbSpectrum) {
 }
 
 func OpenImage(img image.Image) *Bitmap {
+	var r, g, b, a uint32
 	res := NewBitmap(img.Bounds().Max.X, img.Bounds().Max.Y, RgbFlagLinearRgb)
 	for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
 		for x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {
-			c := FromRgbInt(img.At(x, y).RGBA())
+			color := img.At(x, y)
+			r, g, b, a = color.RGBA()
+			c := FromRgbInt(r, g, b, a)
 			res.SetPixel(x, y, c)
 		}
 	}
