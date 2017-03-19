@@ -52,6 +52,10 @@ func CreateRgbSpectrum(a float32, flags int) *RgbSpectrum {
 	return &RgbSpectrum{R: a, G: a, B: a, Flags: flags}
 }
 
+func (r *RgbSpectrum) Clone() *RgbSpectrum {
+	return &RgbSpectrum{R: r.R, G: r.G, B: r.B, Flags: r.Flags}
+}
+
 func (r *RgbSpectrum) Add(s *RgbSpectrum) *RgbSpectrum {
 	r.R += s.R
 	r.G += s.G
@@ -63,6 +67,13 @@ func (r *RgbSpectrum) Mul(s *RgbSpectrum) *RgbSpectrum {
 	r.R *= s.R
 	r.G *= s.G
 	r.B *= s.B
+	return r
+}
+
+func (r *RgbSpectrum) Addf(s float32) *RgbSpectrum {
+	r.R += s
+	r.G += s
+	r.B += s
 	return r
 }
 
