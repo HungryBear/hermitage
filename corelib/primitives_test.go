@@ -43,10 +43,10 @@ func TestVector3_Arithmetic(t *testing.T) {
 
 	v3 := v1.Mul(v2).Addf(1.0)
 
-	asv := v3.Addf(-1.0).Mul(NewVector3(1.0/v2.x, 1.0/v2.y, 1.0/v2.z))
+	asv := v3.Addf(-1.0).Mul(NewVector3(1.0/v2.X, 1.0/v2.Y, 1.0/v2.Z))
 
-	if !NearEqualEps(v1.x, asv.x, 1e-5) {
-		t.Errorf("Invalid arithmetic %f %f", v1.x, asv.x)
+	if !NearEqualEps(v1.X, asv.X, 1e-5) {
+		t.Errorf("Invalid arithmetic %f %f", v1.X, asv.X)
 	}
 }
 

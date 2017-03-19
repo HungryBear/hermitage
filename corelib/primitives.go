@@ -8,11 +8,11 @@ import (
 const InvalidHit uint32 = 0xffffff
 
 type Vector2 struct {
-	x, y float32
+	X, Y float32
 }
 
 type Vector3 struct {
-	x, y, z float32
+	X, Y, Z float32
 }
 
 var X_Axis Vector3 = Vector3{1, 0, 0}
@@ -20,7 +20,7 @@ var Y_Axis Vector3 = Vector3{0, 1, 0}
 var Z_Axis Vector3 = Vector3{0, 0, 1}
 
 type Vector4 struct {
-	x, y, z, w float32
+	X, Y, Z, W float32
 }
 
 type AABB struct {
@@ -30,15 +30,15 @@ type AABB struct {
 type Ray struct {
 	Origin    Vector3
 	Direction Vector3
-	tMin      float32
-	tMax      float32
-	time      float32
+	TMin      float32
+	TMax      float32
+	Time      float32
 }
 
 type RayHit struct {
-	u, v     float32
-	distance float32
-	index    uint32
+	U, V     float32
+	Distance float32
+	Index    uint32
 }
 
 type Onb struct {
@@ -58,46 +58,46 @@ func (b *AABB) Expand(f float32) *AABB {
 }
 
 func (b *AABB) Overlap(b2 *AABB) bool {
-	x := (b2.Max.x >= b.Min.x) && (b2.Min.x <= b.Max.x)
-	y := (b2.Max.y >= b.Min.y) && (b2.Min.y <= b.Max.y)
-	z := (b2.Max.z >= b.Min.z) && (b2.Min.z <= b.Max.z)
+	x := (b2.Max.X >= b.Min.X) && (b2.Min.X <= b.Max.X)
+	y := (b2.Max.Y >= b.Min.Y) && (b2.Min.Y <= b.Max.Y)
+	z := (b2.Max.Z >= b.Min.Z) && (b2.Min.Z <= b.Max.Z)
 	return x || y || z
 }
 
 func (b *AABB) Union(p *Vector3) *AABB {
-	if b.Min.x > p.x {
-		b.Min.x = p.x
+	if b.Min.X > p.X {
+		b.Min.X = p.X
 	}
 
-	if b.Min.y > p.y {
-		b.Min.y = p.y
+	if b.Min.Y > p.Y {
+		b.Min.Y = p.Y
 	}
 
-	if b.Min.z > p.z {
-		b.Min.z = p.z
+	if b.Min.Z > p.Z {
+		b.Min.Z = p.Z
 	}
 
-	b.Max.x = Max(b.Max.x, p.x)
-	b.Max.y = Max(b.Max.y, p.y)
-	b.Max.z = Max(b.Max.z, p.z)
+	b.Max.X = Max(b.Max.X, p.X)
+	b.Max.Y = Max(b.Max.Y, p.Y)
+	b.Max.Z = Max(b.Max.Z, p.Z)
 
 	return b
 }
 
 func (b *AABB) Contains(pt *Vector3) bool {
-	return pt.x >= b.Min.x && pt.x <= b.Max.x &&
-		pt.y >= b.Min.y && pt.y <= b.Max.y &&
-		pt.z >= b.Min.z && pt.z <= b.Max.z
+	return pt.X >= b.Min.X && pt.X <= b.Max.X &&
+		pt.Y >= b.Min.Y && pt.Y <= b.Max.Y &&
+		pt.Z >= b.Min.Z && pt.Z <= b.Max.Z
 }
 
 // Vector2
 
 func NewVector2(x, y float32) *Vector2 {
-	return &Vector2{x: x, y: y}
+	return &Vector2{X: x, Y: y}
 }
 
 func CreateVector2(a float32) *Vector2 {
-	return &Vector2{x: a, y: a}
+	return &Vector2{X: a, Y: a}
 }
 
 // Vector3
@@ -111,47 +111,47 @@ func Zero() *Vector3 {
 }
 
 func CreateVector3(a float32) *Vector3 {
-	return &Vector3{x: a, y: a, z: a}
+	return &Vector3{X: a, Y: a, Z: a}
 }
 
 func (v *Vector3) Copy() *Vector3 {
-	return &Vector3{x: v.x, y: v.y, z: v.z}
+	return &Vector3{X: v.X, Y: v.Y, Z: v.Z}
 }
 
 func NewVector3(x, y, z float32) *Vector3 {
-	return &Vector3{x: x, y: y, z: z}
+	return &Vector3{X: x, Y: y, Z: z}
 }
 
 func (v *Vector3) Add(v2 *Vector3) *Vector3 {
-	return &Vector3{x: v.x + v2.x, y: v.y + v2.y, z: v.z + v2.z}
+	return &Vector3{X: v.X + v2.X, Y: v.Y + v2.Y, Z: v.Z + v2.Z}
 }
 
 func (v *Vector3) Addf(v2 float32) *Vector3 {
-	return &Vector3{x: v.x + v2, y: v.y + v2, z: v.z + v2}
+	return &Vector3{X: v.X + v2, Y: v.Y + v2, Z: v.Z + v2}
 }
 
 func (v *Vector3) Sub(v2 *Vector3) *Vector3 {
-	return &Vector3{x: v.x - v2.x, y: v.y - v2.y, z: v.z - v2.z}
+	return &Vector3{X: v.X - v2.X, Y: v.Y - v2.Y, Z: v.Z - v2.Z}
 }
 
 func (v *Vector3) Mul(v2 *Vector3) *Vector3 {
-	return &Vector3{x: v.x * v2.x, y: v.y * v2.y, z: v.z * v2.z}
+	return &Vector3{X: v.X * v2.X, Y: v.Y * v2.Y, Z: v.Z * v2.Z}
 }
 
 func (v *Vector3) Mulf(v2 float32) *Vector3 {
-	return &Vector3{x: v.x * v2, y: v.y * v2, z: v.z * v2}
+	return &Vector3{X: v.X * v2, Y: v.Y * v2, Z: v.Z * v2}
 }
 
 func (v *Vector3) Dot(v2 *Vector3) float32 {
-	return v.x*v2.x + v.y*v2.y + v.z*v2.z
+	return v.X*v2.X + v.Y*v2.Y + v.Z*v2.Z
 }
 
 func (u *Vector3) Cross(v *Vector3) *Vector3 {
-	return &Vector3{x: u.y*v.z - u.z*v.y, y: u.z*v.x - u.x*v.z, z: u.x*v.y - u.y*v.x}
+	return &Vector3{X: u.Y*v.Z - u.Z*v.Y, Y: u.Z*v.X - u.X*v.Z, Z: u.X*v.Y - u.Y*v.X}
 }
 
 func (v *Vector3) Len() float32 {
-	return float32(math.Sqrt(float64(v.x*v.x + v.y*v.y + v.z*v.z)))
+	return float32(math.Sqrt(float64(v.X*v.X + v.Y*v.Y + v.Z*v.Z)))
 }
 
 func (v *Vector3) Normalize() *Vector3 {
@@ -159,39 +159,39 @@ func (v *Vector3) Normalize() *Vector3 {
 }
 
 func (v *Vector3) ToString() string {
-	return fmt.Sprintf("%f %f %f ", v.x, v.y, v.z)
+	return fmt.Sprintf("%f %f %f ", v.X, v.Y, v.Z)
 }
 
 func (v *Vector3) Equals(v2 *Vector3) bool {
-	return NearEqualEps(v.x, v2.x, 1e-4) && NearEqualEps(v.y, v2.y,1e-4) && NearEqualEps(v.z, v2.z,1e-4)
+	return NearEqualEps(v.X, v2.X, 1e-4) && NearEqualEps(v.Y, v2.Y,1e-4) && NearEqualEps(v.Z, v2.Z,1e-4)
 }
 
 // Vector 4 methods
 
 func NewVector4(x, y, z, w float32) *Vector4 {
-	return &Vector4{x: x, y: y, z: z, w: w}
+	return &Vector4{X: x, Y: y, Z: z, W: w}
 }
 
 func CreateVector4(v *Vector3, f float32) *Vector4 {
-	return &Vector4{x: v.x, y: v.y, z: v.z, w: f}
+	return &Vector4{X: v.X, Y: v.Y, Z: v.Z, W: f}
 }
 
 func (v *Vector4) Add(v2 *Vector4) *Vector4 {
-	return &Vector4{x: v.x + v2.x, y: v.y + v2.y, z: v.z + v2.z, w: v.w + v2.w}
+	return &Vector4{X: v.X + v2.X, Y: v.Y + v2.Y, Z: v.Z + v2.Z, W: v.W + v2.W}
 }
 
 func (v *Vector4) Mul(v2 *Vector4) *Vector4 {
-	return &Vector4{x: v.x * v2.x, y: v.y * v2.y, z: v.z * v2.z, w: v.w * v2.w}
+	return &Vector4{X: v.X * v2.X, Y: v.Y * v2.Y, Z: v.Z * v2.Z, W: v.W * v2.W}
 }
 
 func (v *Vector4) Mulf(v2 float32) *Vector4 {
-	return &Vector4{x: v.x * v2, y: v.y * v2, z: v.z * v2, w: v.w * v2}
+	return &Vector4{X: v.X * v2, Y: v.Y * v2, Z: v.Z * v2, W: v.W * v2}
 }
 
 // Ray methods
 
 func NewRay(pos, dir *Vector3) *Ray {
-	return &Ray{Origin: *pos, Direction: *dir, tMin: 1e-4, tMax: 1e10}
+	return &Ray{Origin: *pos, Direction: *dir, TMin: 1e-4, TMax: 1e10}
 }
 
 func (ray *Ray) Point(dist float32) *Vector3 {
@@ -201,11 +201,11 @@ func (ray *Ray) Point(dist float32) *Vector3 {
 // RayHit
 
 func NewRayHit(a, b, t float32, i uint32) *RayHit {
-	return &RayHit{u: a, v: b, distance: t, index: i}
+	return &RayHit{U: a, V: b, Distance: t, Index: i}
 }
 
 func Miss(hit *RayHit) bool {
-	return hit.index == InvalidHit
+	return hit.Index == InvalidHit
 }
 
 // Onb
@@ -213,7 +213,7 @@ func Miss(hit *RayHit) bool {
 func NewOnb(z Vector3) *Onb {
 	tz := z.Normalize()
 	var x Vector3
-	if Abs(tz.x) > 0.99 {
+	if Abs(tz.X) > 0.99 {
 		x = *Y_Axis.Copy()
 	} else {
 		x = *X_Axis.Copy()
@@ -224,7 +224,7 @@ func NewOnb(z Vector3) *Onb {
 }
 
 func (o *Onb) ToWorld(v *Vector3) *Vector3 {
-	return o.Mx.Mulf(v.x).Add(o.My.Mulf(v.y)).Add(o.Mz.Mulf(v.z))
+	return o.Mx.Mulf(v.X).Add(o.My.Mulf(v.Y)).Add(o.Mz.Mulf(v.Z))
 }
 
 func (o *Onb) ToLocal(v *Vector3) *Vector3 {

@@ -28,23 +28,23 @@ func NewParallelogram(a *Vector3, v0 *Vector3, v1 *Vector3) *Parallelogram {
 }
 
 func (p *Parallelogram) EvaluateNormal(pos *Vector3) *Vector3 {
-	return NewVector3(p.Plane.x, p.Plane.y, p.Plane.z)
+	return NewVector3(p.Plane.X, p.Plane.Y, p.Plane.Z)
 }
 
 func (pl *Parallelogram) Intersect(ray *Ray) (bool, RayHit) {
-	n := NewVector3(pl.Plane.x, pl.Plane.y, pl.Plane.z)
+	n := NewVector3(pl.Plane.X, pl.Plane.Y, pl.Plane.Z)
 	dt := ray.Direction.Dot(n)
-	t := (pl.Plane.w - n.Dot(&ray.Origin)) / dt
+	t := (pl.Plane.W - n.Dot(&ray.Origin)) / dt
 	hit := NewRayHit(0, 0, 1e10, InvalidHit)
 
-	if t < ray.tMax && t > ray.tMin {
+	if t < ray.TMax && t > ray.TMin {
 		p := ray.Origin.Add(ray.Direction.Copy().Mulf(t))
 		vi := p.Sub(&pl.Anchor)
 		a1 := pl.V0.Dot(vi)
 		if a1 >= 0 && a1 <= 1 {
 			a2 := pl.V1.Dot(vi)
 			if a2 >= 0 && a2 <= 1 {
-				hit.distance = t
+				hit.Distance = t
 				return true, *hit
 			}
 		}
@@ -80,13 +80,13 @@ func (s *Sphere) Intersect(ray *Ray) (bool, RayHit) {
 
 	if discriminant > 0 {
 		temp := (-b - Sqrtf(discriminant)) / a
-		if temp < ray.tMax && temp > ray.tMin {
-			hit.distance = temp
+		if temp < ray.TMax && temp > ray.TMin {
+			hit.Distance = temp
 			return true, *hit
 		}
 		temp = (-b + Sqrtf(discriminant)) / a
-		if temp < ray.tMax && temp > ray.tMin {
-			hit.distance = temp
+		if temp < ray.TMax && temp > ray.TMin {
+			hit.Distance = temp
 			return true, *hit
 		}
 	}

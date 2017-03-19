@@ -144,16 +144,16 @@ func (m1*Matrix4x4) Mul(m2 *Matrix4x4)*Matrix4x4{
 
 func (m *Matrix4x4) TransformDirection(v *Vector3) *Vector3 {
 	return NewVector3(
-		v.x*m[0][0]+v.y*m[1][0]+v.z*m[2][0],
-		v.x*m[0][1]+v.y*m[1][1]+v.z*m[2][1],
-		v.x*m[0][2]+v.y*m[1][2]+v.z*m[2][2])
+		v.X*m[0][0]+v.Y*m[1][0]+v.Z*m[2][0],
+		v.X*m[0][1]+v.Y*m[1][1]+v.Z*m[2][1],
+		v.X*m[0][2]+v.Y*m[1][2]+v.Z*m[2][2])
 }
 
 func (m *Matrix4x4) TransformPoint(v *Vector3) *Vector3 {
 	return NewVector3(
-		v.x*m[0][0]+v.y*m[1][0]+v.z*m[2][0] + m[3][0],
-		v.x*m[0][1]+v.y*m[1][1]+v.z*m[2][1] + m[3][1],
-		v.x*m[0][2]+v.y*m[1][2]+v.z*m[2][2] + m[3][2])
+		v.X*m[0][0]+v.Y*m[1][0]+v.Z*m[2][0] + m[3][0],
+		v.X*m[0][1]+v.Y*m[1][1]+v.Z*m[2][1] + m[3][1],
+		v.X*m[0][2]+v.Y*m[1][2]+v.Z*m[2][2] + m[3][2])
 }
 
 func Perspective(aFov, aNear, aFar float32) *Matrix4x4 {

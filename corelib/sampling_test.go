@@ -81,11 +81,11 @@ func TestNewSamplesCollection(t *testing.T) {
 		if sc.Samples1D[i] < Epsilon {
 			t.Error("Invalid 1D sample value %f", sc.Samples1D[i])
 		}
-		if sc.Samples2D[i].x < Epsilon {
-			t.Error("Invalid 2D sample x value %f", sc.Samples2D[i].x)
+		if sc.Samples2D[i].X < Epsilon {
+			t.Error("Invalid 2D sample x value %f", sc.Samples2D[i].X)
 		}
-		if sc.Samples2D[i].y < Epsilon {
-			t.Error("Invalid 2D sample y value %f", sc.Samples2D[i].y)
+		if sc.Samples2D[i].Y < Epsilon {
+			t.Error("Invalid 2D sample y value %f", sc.Samples2D[i].Y)
 		}
 	}
 

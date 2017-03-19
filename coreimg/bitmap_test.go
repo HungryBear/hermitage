@@ -16,7 +16,7 @@ func TestBitmap(t *testing.T) {
 
 	pix := bmp.GetPixel(60, 50)
 
-	t.Logf("%f %f %f ", pix.r, pix.g, pix.b)
+	t.Logf("%f %f %f ", pix.R, pix.G, pix.B)
 
 
 
@@ -36,8 +36,8 @@ func TestBitmap(t *testing.T) {
 
 	newPix := newBmp.GetPixel(60, 50)
 
-	if !corelib.NearEqualEps(pix.r, newPix.r/255.0, 0.01) {
-		t.Error("invalid value after conversion", pix.r, newPix.r/255.0)
+	if !corelib.NearEqualEps(pix.R, newPix.R/255.0, 0.01) {
+		t.Error("invalid value after conversion", pix.R, newPix.R/255.0)
 	}
 
 }
