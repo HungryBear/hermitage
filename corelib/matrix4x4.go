@@ -142,19 +142,55 @@ func (m1*Matrix4x4) Mul(m2 *Matrix4x4)*Matrix4x4{
 	return r;
 }
 
-func (m *Matrix4x4) TransformDirection(v *Vector3) *Vector3 {
-	return NewVector3(
-		v.X*m[0][0]+v.Y*m[1][0]+v.Z*m[2][0],
-		v.X*m[0][1]+v.Y*m[1][1]+v.Z*m[2][1],
-		v.X*m[0][2]+v.Y*m[1][2]+v.Z*m[2][2])
+func Translate(x,y,z float32)*Matrix4x4{
+	m := Identity()
+	m[3][0] = x
+	m[3][1] = y
+	m[3][2] = z
+	return m
 }
 
-func (m *Matrix4x4) TransformPoint(v *Vector3) *Vector3 {
-	return NewVector3(
-		v.X*m[0][0]+v.Y*m[1][0]+v.Z*m[2][0] + m[3][0],
-		v.X*m[0][1]+v.Y*m[1][1]+v.Z*m[2][1] + m[3][1],
-		v.X*m[0][2]+v.Y*m[1][2]+v.Z*m[2][2] + m[3][2])
+func Scale(x,y,z float32)*Matrix4x4{
+	m := Identity()
+	m[0][0] = x
+	m[1][1] = y
+	m[2][2] = z
+	return m
 }
+
+func RotateX(angle float32) *Matrix4x4{
+	m:=Identity()
+	cosa:=Cosf(angle)
+	sina:=Sinf(angle)
+	m[1][1]=cosa
+	m[1][2]=sina
+	m[2][1]=-sina
+	m[2][2]=cosa
+	return m
+}
+
+func RotateY(angle float32) *Matrix4x4{
+	m:=Identity()
+	cosa:=Cosf(angle)
+	sina:=Sinf(angle)
+	m[0][0]=cosa
+	m[0][2]=-sina
+	m[2][0]=sina
+	m[2][2]=cosa
+	return m
+}
+
+func RotateZ(angle float32) *Matrix4x4{
+	m:=Identity()
+	cosa:=Cosf(angle)
+	sina:=Sinf(angle)
+	m[0][0]=cosa
+	m[0][1]=sina
+	m[1][0]=-sina
+	m[1][1]=cosa
+	return m
+}
+
 
 func Perspective(aFov, aNear, aFar float32) *Matrix4x4 {
 	f := 1.0 / float32(math.Tan(float64(aFov)*math.Pi/360.0))
@@ -164,6 +200,30 @@ func Perspective(aFov, aNear, aFar float32) *Matrix4x4 {
 		0, -f, 0, 0,
 		0, 0, (aNear+aFar)*d, 2.0*d*aNear*aFar,
 		0, 0, -1.0, 0)
+}
+
+func LookAt(pos, target, up *Vector3)*Matrix4x4{
+	m:=&Matrix4x4{}
+	m[0][3] = pos.X
+	m[1][3] = pos.Y
+	m[2][3] = pos.Z
+	m[3][3] = 1.0
+	dir:=target.Sub(pos).Normalize()
+	right:=dir.Cross(up).Normalize()
+	newUp:=right.Cross(dir).Normalize()
+	m[0][0] = right.X
+	m[1][0] = right.Y
+	m[2][0] = right.Z
+	m[3][0] = 0
+	m[0][1] = newUp.X
+	m[1][1] = newUp.Y
+	m[2][1] = newUp.Z
+	m[3][1] = 0
+	m[0][2] = dir.X
+	m[1][2] = dir.Y
+	m[2][2] = dir.Z
+	m[3][2] = 0
+	return m
 }
 
 

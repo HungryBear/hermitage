@@ -3,6 +3,7 @@ package main
 import (
 	"../coreimg"
 	"../corelib"
+	"../scenelib"
 )
 
 var rough float32 = 0.92
@@ -10,6 +11,8 @@ var bitmap coreimg.Bitmap = *coreimg.NewBitmap(512, 512, 1)
 
 func main(){
 
+	wc := scenelib.Scene{}
+	wc.Name = "New Scene"
 	hm:=corelib.GenerateDSQ(512, 512, rough)
 
 	for y := 0; y < 512; y++ {
@@ -19,5 +22,5 @@ func main(){
 	}
 
 
-	bitmap.SaveToPng("D:\\dsq.png")
+	bitmap.SaveToPng("D:\\dsq_2.png")
 }

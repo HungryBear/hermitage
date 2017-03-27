@@ -4,6 +4,7 @@ type Shape interface {
 	Intersect(ray *Ray) (bool, *RayHit)
 	EvaluateNormal(position *Vector3) *Vector3
 	Area() float32
+	Bounds() *AABB
 }
 
 type Sphere struct {
@@ -29,6 +30,11 @@ func NewParallelogram(a *Vector3, v0 *Vector3, v1 *Vector3) *Parallelogram {
 
 func (p *Parallelogram) EvaluateNormal(pos *Vector3) *Vector3 {
 	return NewVector3(p.Plane.X, p.Plane.Y, p.Plane.Z)
+}
+
+func (p *Parallelogram) Bounds() *AABB{
+	return NewAABB(NewVector3(Min(p.Anchor.X, Min(p.V0.X, p.V1.X)),Min(p.Anchor.Y, Min(p.V0.Y, p.V1.Y)),Min(p.Anchor.Z, Min(p.V0.Z, p.V1.Z))),
+		NewVector3(Max(p.Anchor.X, Max(p.V0.X, p.V1.X)),Max(p.Anchor.Y, Max(p.V0.Y, p.V1.Y)),Max(p.Anchor.Z, Max(p.V0.Z, p.V1.Z))))
 }
 
 func (pl *Parallelogram) Intersect(ray *Ray) (bool, RayHit) {
@@ -63,6 +69,10 @@ func (p *Parallelogram) Area() float32 {
 
 func NewSphere(pos *Vector3, rad float32) *Sphere {
 	return &Sphere{Position: *pos, Radius: rad}
+}
+
+func (s*Sphere)Bounds()*AABB{
+	return NewAABB(s.Position.Addf(-s.Radius), s.Position.Addf(s.Radius))
 }
 
 func (sphere *Sphere) EvaluateNormal(pos *Vector3) *Vector3 {

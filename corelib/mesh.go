@@ -16,3 +16,7 @@ type MeshData struct {
 	TexCoords []Vector2
 	Meshes    []MeshInfo
 }
+
+func NewMesh(id int, name string, data *MeshData)*MeshInfo{
+	return &MeshInfo{Id:id, Name:name, Owner:data}
+}

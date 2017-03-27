@@ -118,6 +118,10 @@ func (v *Vector3) Copy() *Vector3 {
 	return &Vector3{X: v.X, Y: v.Y, Z: v.Z}
 }
 
+func (v *Vector3) Neg() *Vector3 {
+	return &Vector3{X: -v.X, Y: -v.Y, Z: -v.Z}
+}
+
 func NewVector3(x, y, z float32) *Vector3 {
 	return &Vector3{X: x, Y: y, Z: z}
 }

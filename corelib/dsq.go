@@ -2,6 +2,12 @@ package corelib
 
 import "math/rand"
 
+func f_rough(c float32) float32{
+	return Sqrtf(1.0 / c*rand.Float32())
+	//Sinf(1.0 / (1.0 + rand.Float32()))*c
+}
+
+
 func diamondStep(sx, sy, rx, ry, w int, bitmap []float32, rough float32){
 	dx:=(sx + rx) / 2
 	dy:=(sy + ry) / 2
@@ -11,7 +17,7 @@ func diamondStep(sx, sy, rx, ry, w int, bitmap []float32, rough float32){
 	c2:=bitmap[rx+ dy*w]
 	c3:=bitmap[rx+ dy*w]
 
-	c:=(c0+c1+c2+c3)*0.25+(1.0 / (1.0+ rand.Float32()*rough));
+	c:=(c0+c1+c2+c3)*0.25+f_rough(rough);
 
 	bitmap[dx+dy*w] = c
 }
